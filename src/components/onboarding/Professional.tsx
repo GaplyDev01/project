@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Briefcase, Building, ChevronRight, Users } from 'lucide-react';
+import { ArrowLeft, Building, ChevronRight, Users } from 'lucide-react';
 import { OnboardingLayout } from '../layout/OnboardingLayout';
 import { GlassCard } from '../ui/GlassCard';
 import { Button } from '../ui/Button';
@@ -29,7 +29,7 @@ const industryOptions = [
 ];
 
 export const OnboardingProfessional: React.FC = () => {
-  const { setCurrentStep, updateProfile, profile } = useOnboardingStore();
+  const { setStep, updateProfile, profile } = useOnboardingStore();
   const [role, setRole] = useState(profile.professionalContext.role);
   const [organization, setOrganization] = useState(profile.professionalContext.organization);
   const [scale, setScale] = useState(profile.professionalContext.scale);
@@ -44,7 +44,7 @@ export const OnboardingProfessional: React.FC = () => {
         industry,
       },
     });
-    setCurrentStep(3);
+    setStep(3);
   };
   
   const isFormValid = role.trim() !== '' && (scale !== null);
@@ -139,7 +139,7 @@ export const OnboardingProfessional: React.FC = () => {
         <div className="flex justify-between">
           <Button 
             variant="ghost" 
-            onClick={() => setCurrentStep(1)}
+            onClick={() => setStep(1)}
             leftIcon={<ArrowLeft className="w-4 h-4" />}
           >
             Back

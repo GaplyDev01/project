@@ -7,7 +7,7 @@ import { Button } from '../ui/Button';
 import { useOnboardingStore } from '../../stores/onboardingStore';
 
 export const OnboardingWelcome: React.FC = () => {
-  const { setCurrentStep } = useOnboardingStore();
+  const { setStep } = useOnboardingStore();
   
   return (
     <OnboardingLayout 
@@ -62,7 +62,7 @@ export const OnboardingWelcome: React.FC = () => {
             
             <Button 
               size="lg" 
-              onClick={() => setCurrentStep(1)}
+              onClick={() => setStep(1)}
               rightIcon={<ChevronRight className="w-5 h-5" />}
             >
               Begin Profile Creation

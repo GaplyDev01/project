@@ -52,7 +52,7 @@ const successStories = [
 ];
 
 export const OnboardingStories: React.FC = () => {
-  const { setCurrentStep, updateProfile, profile } = useOnboardingStore();
+  const { setStep, updateProfile, profile } = useOnboardingStore();
   const [selectedStories, setSelectedStories] = useState<string[]>(profile.successStories || []);
   
   const toggleStory = (storyId: string) => {
@@ -69,7 +69,7 @@ export const OnboardingStories: React.FC = () => {
     updateProfile({ 
       successStories: selectedStories
     });
-    setCurrentStep(6);
+    setStep(6);
   };
   
   return (
@@ -142,7 +142,7 @@ export const OnboardingStories: React.FC = () => {
         <div className="flex justify-between">
           <Button 
             variant="ghost" 
-            onClick={() => setCurrentStep(4)}
+            onClick={() => setStep(4)}
             leftIcon={<ArrowLeft className="w-4 h-4" />}
           >
             Back

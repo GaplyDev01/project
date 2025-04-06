@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useOnboardingStore } from '../../stores/onboardingStore';
-import { Barcode, ChevronRight, Zap } from 'lucide-react';
+import { Barcode, Zap } from 'lucide-react';
 
 interface OnboardingLayoutProps {
   children: React.ReactNode;
@@ -16,10 +16,10 @@ export const OnboardingLayout: React.FC<OnboardingLayoutProps> = ({
   subtitle,
   showProgress = true,
 }) => {
-  const { currentStep } = useOnboardingStore();
+  const { step } = useOnboardingStore();
   
-  const totalSteps = 7; // Total number of steps in the onboarding process
-  const progressPercentage = ((currentStep + 1) / totalSteps) * 100;
+  const totalSteps = 7; // Total number of onboarding steps in the flow
+  const progressPercentage = (step / totalSteps) * 100;
   
   return (
     <div className="min-h-screen flex flex-col">

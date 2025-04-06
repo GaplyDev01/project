@@ -4,7 +4,7 @@ import type { UserProfile } from '../lib/supabase';
 import { supabase } from '../lib/supabase';
 
 // Define the onboarding step type
-type OnboardingStep = 1 | 2 | 3;
+type OnboardingStep = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7;
 
 // Define the step completion data interface
 interface StepCompletionData {
@@ -38,7 +38,7 @@ const initialProfile: Partial<UserProfile> = {
 };
 
 export const useOnboardingStore = create<OnboardingState>()(persist<OnboardingState>(
-    (set, get) => ({
+    (set: any, get: any) => ({
       step: 1,
       isComplete: false,
       profile: initialProfile,

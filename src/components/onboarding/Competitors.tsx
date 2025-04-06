@@ -31,7 +31,7 @@ const suggestions = [
 ];
 
 export const OnboardingCompetitors: React.FC = () => {
-  const { setCurrentStep, updateProfile, profile } = useOnboardingStore();
+  const { setStep, updateProfile, profile } = useOnboardingStore();
   const [competitors, setCompetitors] = useState<string[]>(profile.competitors || []);
   const [customInput, setCustomInput] = useState('');
   
@@ -54,7 +54,7 @@ export const OnboardingCompetitors: React.FC = () => {
   
   const handleContinue = () => {
     updateProfile({ competitors });
-    setCurrentStep(7);
+    setStep(7);
   };
   
   return (
@@ -150,7 +150,7 @@ export const OnboardingCompetitors: React.FC = () => {
         <div className="flex justify-between">
           <Button 
             variant="ghost" 
-            onClick={() => setCurrentStep(5)}
+            onClick={() => setStep(5)}
             leftIcon={<ArrowLeft className="w-4 h-4" />}
           >
             Back
