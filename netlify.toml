@@ -1,0 +1,17 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+[dev]
+  command = "npm run dev"
+  port = 5173
+  targetPort = 5173
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[context.production.environment]
+  VITE_SUPABASE_URL = "https://jraqpyndhlkusevqmspy.supabase.co"
+  VITE_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpyYXFweW5kaGxrdXNldnFtc3B5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM4NzU4ODUsImV4cCI6MjA1OTQ1MTg4NX0.jU7wrdVJpNitoLGrljYSHs01x1eZnRQPhZIl27nDupA"
